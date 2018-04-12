@@ -1040,7 +1040,7 @@ var ImageGallery = function (_React$Component) {
           },
           className: 'image-gallery-slide-wrapper ' + thumbnailPosition
         },
-        this.props.renderDetails(item),
+        this.props.renderDetails(this.props.items[this.state.currentIndex]),
         this.props.renderCustomControls && this.props.renderCustomControls(),
         this.props.showFullscreenButton && this.props.renderFullscreenButton(this._toggleFullScreen, isFullscreen),
         this.props.showPlayButton && this.props.renderPlayPauseButton(this._togglePlay, isPlaying),

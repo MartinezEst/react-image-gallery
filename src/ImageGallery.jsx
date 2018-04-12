@@ -1080,7 +1080,7 @@ export default class ImageGallery extends React.Component {
         ref={i => this._imageGallerySlideWrapper = i}
         className={`image-gallery-slide-wrapper ${thumbnailPosition}`}
       >
-        {this.props.renderDetails(item)}
+        {this.props.renderDetails(this.props.items[this.state.currentIndex])}
 
         {this.props.renderCustomControls && this.props.renderCustomControls()}
 
