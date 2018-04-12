@@ -77,7 +77,7 @@ export default class ImageGallery extends React.Component {
     renderPlayPauseButton: PropTypes.func,
     renderFullscreenButton: PropTypes.func,
     renderItem: PropTypes.func,
-    details: PropTypes.func,
+    renderDetails: PropTypes.func,
     stopPropagation: PropTypes.bool,
     additionalClass: PropTypes.string,
     useTranslate3D: PropTypes.bool,
@@ -1080,7 +1080,7 @@ export default class ImageGallery extends React.Component {
         ref={i => this._imageGallerySlideWrapper = i}
         className={`image-gallery-slide-wrapper ${thumbnailPosition}`}
       >
-        {this.props.details}
+        {this.props.renderDetails(item)}
 
         {this.props.renderCustomControls && this.props.renderCustomControls()}
 
