@@ -44,12 +44,12 @@ var ImageGallery = function (_React$Component) {
   function ImageGallery(props) {
     _classCallCheck(this, ImageGallery);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageGallery).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ImageGallery.__proto__ || Object.getPrototypeOf(ImageGallery)).call(this, props));
 
     _this.slideToIndex = function (index, event) {
-      var _this$state = _this.state;
-      var currentIndex = _this$state.currentIndex;
-      var isTransitioning = _this$state.isTransitioning;
+      var _this$state = _this.state,
+          currentIndex = _this$state.currentIndex,
+          isTransitioning = _this$state.isTransitioning;
 
 
       if (!isTransitioning) {
@@ -191,9 +191,9 @@ var ImageGallery = function (_React$Component) {
     };
 
     _this._handleOnSwiped = function (e, deltaX, deltaY, isFlick) {
-      var _this$state2 = _this.state;
-      var scrollingUpDown = _this$state2.scrollingUpDown;
-      var scrollingLeftRight = _this$state2.scrollingLeftRight;
+      var _this$state2 = _this.state,
+          scrollingUpDown = _this$state2.scrollingUpDown,
+          scrollingLeftRight = _this$state2.scrollingLeftRight;
 
       if (scrollingUpDown) {
         // user stopped scrollingUpDown
@@ -213,10 +213,10 @@ var ImageGallery = function (_React$Component) {
     };
 
     _this._handleSwiping = function (e, deltaX, deltaY, delta) {
-      var _this$state3 = _this.state;
-      var galleryWidth = _this$state3.galleryWidth;
-      var isTransitioning = _this$state3.isTransitioning;
-      var scrollingUpDown = _this$state3.scrollingUpDown;
+      var _this$state3 = _this.state,
+          galleryWidth = _this$state3.galleryWidth,
+          isTransitioning = _this$state3.isTransitioning,
+          scrollingUpDown = _this$state3.scrollingUpDown;
       var swipingTransitionDuration = _this.props.swipingTransitionDuration;
 
       _this._setScrollDirection(deltaX, deltaY);
@@ -419,12 +419,12 @@ var ImageGallery = function (_React$Component) {
     value: function play() {
       var _this2 = this;
 
-      var callback = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
+      var callback = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
       if (!this._intervalId) {
-        var _props = this.props;
-        var slideInterval = _props.slideInterval;
-        var slideDuration = _props.slideDuration;
+        var _props = this.props,
+            slideInterval = _props.slideInterval,
+            slideDuration = _props.slideDuration;
 
         this.setState({ isPlaying: true });
         this._intervalId = window.setInterval(function () {
@@ -445,7 +445,7 @@ var ImageGallery = function (_React$Component) {
   }, {
     key: 'pause',
     value: function pause() {
-      var callback = arguments.length <= 0 || arguments[0] === undefined ? true : arguments[0];
+      var callback = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
       if (this._intervalId) {
         window.clearInterval(this._intervalId);
@@ -563,9 +563,9 @@ var ImageGallery = function (_React$Component) {
   }, {
     key: '_setScrollDirection',
     value: function _setScrollDirection(deltaX, deltaY) {
-      var _state = this.state;
-      var scrollingUpDown = _state.scrollingUpDown;
-      var scrollingLeftRight = _state.scrollingLeftRight;
+      var _state = this.state,
+          scrollingUpDown = _state.scrollingUpDown,
+          scrollingLeftRight = _state.scrollingLeftRight;
 
       var x = Math.abs(deltaX);
       var y = Math.abs(deltaY);
@@ -580,9 +580,9 @@ var ImageGallery = function (_React$Component) {
   }, {
     key: '_handleOnSwipedTo',
     value: function _handleOnSwipedTo(side, isFlick) {
-      var _state2 = this.state;
-      var currentIndex = _state2.currentIndex;
-      var isTransitioning = _state2.isTransitioning;
+      var _state2 = this.state,
+          currentIndex = _state2.currentIndex,
+          isTransitioning = _state2.isTransitioning;
 
       var slideTo = currentIndex;
 
@@ -658,9 +658,9 @@ var ImageGallery = function (_React$Component) {
         return 0;
       }
 
-      var _state3 = this.state;
-      var thumbnailsWrapperWidth = _state3.thumbnailsWrapperWidth;
-      var thumbnailsWrapperHeight = _state3.thumbnailsWrapperHeight;
+      var _state3 = this.state,
+          thumbnailsWrapperWidth = _state3.thumbnailsWrapperWidth,
+          thumbnailsWrapperHeight = _state3.thumbnailsWrapperHeight;
 
       var totalScroll = void 0;
 
@@ -724,9 +724,9 @@ var ImageGallery = function (_React$Component) {
   }, {
     key: '_isGoingFromFirstToLast',
     value: function _isGoingFromFirstToLast() {
-      var _state4 = this.state;
-      var currentIndex = _state4.currentIndex;
-      var previousIndex = _state4.previousIndex;
+      var _state4 = this.state,
+          currentIndex = _state4.currentIndex,
+          previousIndex = _state4.previousIndex;
 
       var totalSlides = this.props.items.length - 1;
       return previousIndex === 0 && currentIndex === totalSlides;
@@ -734,9 +734,9 @@ var ImageGallery = function (_React$Component) {
   }, {
     key: '_isGoingFromLastToFirst',
     value: function _isGoingFromLastToFirst() {
-      var _state5 = this.state;
-      var currentIndex = _state5.currentIndex;
-      var previousIndex = _state5.previousIndex;
+      var _state5 = this.state,
+          currentIndex = _state5.currentIndex,
+          previousIndex = _state5.previousIndex;
 
       var totalSlides = this.props.items.length - 1;
       return previousIndex === totalSlides && currentIndex === 0;
@@ -745,10 +745,10 @@ var ImageGallery = function (_React$Component) {
     key: '_getTranslateXForTwoSlide',
     value: function _getTranslateXForTwoSlide(index) {
       // For taking care of infinite swipe when there are only two slides
-      var _state6 = this.state;
-      var currentIndex = _state6.currentIndex;
-      var offsetPercentage = _state6.offsetPercentage;
-      var previousIndex = _state6.previousIndex;
+      var _state6 = this.state,
+          currentIndex = _state6.currentIndex,
+          offsetPercentage = _state6.offsetPercentage,
+          previousIndex = _state6.previousIndex;
 
       var baseTranslateX = -100 * currentIndex;
       var translateX = baseTranslateX + index * 100 + offsetPercentage;
@@ -817,10 +817,10 @@ var ImageGallery = function (_React$Component) {
       returns true if the gallery is transitioning and the index is not the
       previous or currentIndex
       */
-      var _state7 = this.state;
-      var isTransitioning = _state7.isTransitioning;
-      var previousIndex = _state7.previousIndex;
-      var currentIndex = _state7.currentIndex;
+      var _state7 = this.state,
+          isTransitioning = _state7.isTransitioning,
+          previousIndex = _state7.previousIndex,
+          currentIndex = _state7.currentIndex;
 
       var indexIsNotPreviousOrNextSlide = !(index === previousIndex || index === currentIndex);
       return isTransitioning && indexIsNotPreviousOrNextSlide;
@@ -840,9 +840,9 @@ var ImageGallery = function (_React$Component) {
         Ignore isTransitioning because were not going to sibling slides
         e.g. center to left or center to right
       */
-      var _state8 = this.state;
-      var previousIndex = _state8.previousIndex;
-      var currentIndex = _state8.currentIndex;
+      var _state8 = this.state,
+          previousIndex = _state8.previousIndex,
+          currentIndex = _state8.currentIndex;
 
       var totalSlides = this.props.items.length - 1;
       // we want to show the in between slides transition
@@ -855,13 +855,13 @@ var ImageGallery = function (_React$Component) {
   }, {
     key: '_getSlideStyle',
     value: function _getSlideStyle(index) {
-      var _state9 = this.state;
-      var currentIndex = _state9.currentIndex;
-      var offsetPercentage = _state9.offsetPercentage;
-      var _props2 = this.props;
-      var infinite = _props2.infinite;
-      var items = _props2.items;
-      var useTranslate3D = _props2.useTranslate3D;
+      var _state9 = this.state,
+          currentIndex = _state9.currentIndex,
+          offsetPercentage = _state9.offsetPercentage;
+      var _props2 = this.props,
+          infinite = _props2.infinite,
+          items = _props2.items,
+          useTranslate3D = _props2.useTranslate3D;
 
       var baseTranslateX = -100 * currentIndex;
       var totalSlides = items.length - 1;
@@ -929,15 +929,15 @@ var ImageGallery = function (_React$Component) {
     value: function render() {
       var _this6 = this;
 
-      var _state10 = this.state;
-      var currentIndex = _state10.currentIndex;
-      var isFullscreen = _state10.isFullscreen;
-      var modalFullscreen = _state10.modalFullscreen;
-      var isPlaying = _state10.isPlaying;
-      var scrollingLeftRight = _state10.scrollingLeftRight;
-      var _props3 = this.props;
-      var infinite = _props3.infinite;
-      var preventDefaultTouchmoveEvent = _props3.preventDefaultTouchmoveEvent;
+      var _state10 = this.state,
+          currentIndex = _state10.currentIndex,
+          isFullscreen = _state10.isFullscreen,
+          modalFullscreen = _state10.modalFullscreen,
+          isPlaying = _state10.isPlaying,
+          scrollingLeftRight = _state10.scrollingLeftRight;
+      var _props3 = this.props,
+          infinite = _props3.infinite,
+          preventDefaultTouchmoveEvent = _props3.preventDefaultTouchmoveEvent;
 
 
       var thumbnailStyle = this._getThumbnailStyle();
@@ -1040,7 +1040,7 @@ var ImageGallery = function (_React$Component) {
           },
           className: 'image-gallery-slide-wrapper ' + thumbnailPosition
         },
-        this.props.renderDetails,
+        this.props.renderDetails && this.props.renderDetails(this.props.items[currentIndex]),
         this.props.renderCustomControls && this.props.renderCustomControls(),
         this.props.showFullscreenButton && this.props.renderFullscreenButton(this._toggleFullScreen, isFullscreen),
         this.props.showPlayButton && this.props.renderPlayPauseButton(this._togglePlay, isPlaying),
@@ -1215,6 +1215,7 @@ ImageGallery.propTypes = {
   renderPlayPauseButton: _propTypes2.default.func,
   renderFullscreenButton: _propTypes2.default.func,
   renderItem: _propTypes2.default.func,
+  renderDetails: _propTypes2.default.func,
   stopPropagation: _propTypes2.default.bool,
   additionalClass: _propTypes2.default.string,
   useTranslate3D: _propTypes2.default.bool
